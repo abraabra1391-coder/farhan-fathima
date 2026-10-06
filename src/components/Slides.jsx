@@ -237,7 +237,7 @@ export function SlideSection({ children, active = true, topPadClassName = 'pt-32
         style={{
           backgroundImage: 'url(/images/bg-lattice-pattern.png)',
           backgroundRepeat: 'repeat',
-          backgroundSize: '150px 150px',
+          backgroundSize: '320px 320px',
           backgroundPosition: 'center center',
           mixBlendMode: 'multiply',
         }}
