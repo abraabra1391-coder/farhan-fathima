@@ -1,0 +1,296 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-jost: "Jost", system-ui, sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-alexbrush: "Alex Brush", cursive;
+  --font-greatvibes: "Great Vibes", cursive;
+  --font-scheherazade: "Scheherazade New", serif;
+  --font-amiri: "Amiri", serif;
+
+  /* Off-White, Gold, and Brown Design Palette */
+  --ink: #361d14;         /* Primary Deep Dark Brown */
+  --ink-soft: #6b4737;    /* Secondary Soft Warm Brown */
+  --brown-800: #4a2b1b;   /* Rich Warm Medium Brown */
+  --brown-900: #331a0e;   /* Deep Dark Chocolate Brown */
+
+  --gold: #d4af37;        /* Metallic Gold */
+  --gold-deep: #8a6524;   /* Deep Antique Gold */
+  --gold-ink: #9c7429;    /* Warm Gold Text Accent */
+
+  --cream: #f7f2e6;       /* Soft Parchment Cream */
+  --cream-soft: #fdfbf7;  /* Pure Elegant Off-White */
+  --offwhite: #fcf9f2;    /* Warm Off-White */
+
+  --blossom: #e0b868;     /* Gold Blossom */
+  --blossom-deep: #a67c2e;/* Deep Amber Blossom */
+  --blossom-pale: #f9f3e6;/* Off-White Petal */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+  font-family: var(--font-jost);
+  color: var(--ink);
+  background-color: #1c0e08;
+}
+
+/* Custom Fonts Utility Classes */
+.font-name {
+  font-family: var(--font-cormorant);
+  font-weight: 600;
+  color: var(--brown-800);
+}
+
+.font-script {
+  font-family: var(--font-alexbrush);
+}
+
+.font-heading {
+  font-family: var(--font-cormorant);
+}
+
+.font-arabic {
+  font-family: var(--font-amiri);
+}
+
+.font-date {
+  font-family: var(--font-cormorant);
+  font-weight: 700;
+}
+
+.gold-text {
+  color: var(--gold-ink);
+}
+
+/* Animations Disabled */
+.branch-sway, .breeze, .petal-fall, .petal-burst, .chevron-bob, .shimmer {
+  animation: none !important;
+}
+
+.rise-in {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Splash Loader Rings */
+.splash-loader-wrapper {
+  position: relative;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-loader-ring {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes ringRotateA {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ringRotateB {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+.splash-loader-ring-a {
+  animation: ringRotateA 4.5s linear infinite;
+}
+
+.splash-loader-ring-b {
+  animation: ringRotateB 6s linear infinite;
+}
+
+@keyframes splashOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+.splash-out {
+  animation: splashOut 1s ease forwards;
+}
+
+/* Ambient Live Motion Animation for Gold Archway */
+@keyframes ambientLiveArchway {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate(0, -6px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.ambient-live-archway {
+  animation: ambientLiveArchway 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Chandelier Light Glow Flicker */
+@keyframes chandelierGlow {
+  0%, 100% { opacity: 0.65; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.1); }
+}
+
+.chandelier-glow {
+  animation: chandelierGlow 3.5s ease-in-out infinite;
+}
+
+/* Floating Gold Sparkle Particles */
+@keyframes goldSparkleFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.4);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(var(--sx, 10px), -120px, 0) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.gold-sparkle {
+  animation: goldSparkleFloat var(--sdur, 4s) ease-in-out infinite;
+  animation-delay: var(--sdelay, 0s);
+}
+
+/* Slowly Cinematic Walkthrough Keyframe Motion */
+@keyframes cinematicSlowWalkthrough {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.9) translate(0, -2.8%);
+    filter: brightness(1.02);
+  }
+  75% {
+    transform: scale(2.4) translate(0, -3.8%);
+    filter: brightness(1.06);
+    opacity: 1;
+  }
+  92% {
+    transform: scale(3.5) translate(0, -5.2%);
+    filter: brightness(1.25);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4.4) translate(0, -6.2%);
+    filter: brightness(1.4);
+    opacity: 0;
+  }
+}
+
+.cinematic-walkthrough-active {
+  animation: cinematicSlowWalkthrough 5.8s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  will-change: transform, filter, opacity;
+}
+
+
+
+/* Section Idle Transition */
+.section-idle .rise-in {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Gold & Cream Petal Fall Animation for First Section */
+@keyframes goldPetalFall {
+  0% {
+    transform: translate3d(0, -20px, 0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate3d(var(--psway, 15px), 50vh, 0) rotate(180deg) scale(1.05);
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(calc(var(--psway, 15px) * -1), 105vh, 0) rotate(360deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+.gold-petal-fall {
+  animation: goldPetalFall var(--pdur, 8s) ease-in-out infinite !important;
+  animation-delay: var(--pdelay, 0s);
+  will-change: transform, opacity;
+}
+
+/* Cream Petal Slow Motion Fall (One-by-One Staggered Flow) */
+@keyframes creamPetalSlowFall {
+  0% {
+    transform: translate3d(0, -35px, 0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.96;
+  }
+  50% {
+    transform: translate3d(var(--psway, 18px), 52vh, 0) rotate(190deg) scale(1.05);
+    opacity: 0.96;
+  }
+  88% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(calc(var(--psway, 18px) * -1), 108vh, 0) rotate(380deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+/* Gold Petal Continuous Uninterrupted Fall (Fades out ONLY after reaching screen bottom) */
+@keyframes goldPetalContinuousFall {
+  0% {
+    transform: translate3d(0, -40px, 0) rotateX(10deg) rotateY(0deg) rotateZ(0deg) scale(0.85);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.96;
+  }
+  50% {
+    transform: translate3d(var(--psway, 20px), 52vh, 0) rotateX(160deg) rotateY(90deg) rotateZ(180deg) scale(1.05);
+    opacity: 0.96;
+  }
+  90% {
+    transform: translate3d(calc(var(--psway, 20px) * -0.6), 94vh, 0) rotateX(280deg) rotateY(180deg) rotateZ(310deg) scale(0.95);
+    opacity: 0.96;
+  }
+  100% {
+    transform: translate3d(calc(var(--psway, 20px) * -1.1), 108vh, 0) rotateX(360deg) rotateY(240deg) rotateZ(360deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+.gold-petal-continuous-fall {
+  animation: goldPetalContinuousFall var(--pdur, 12s) linear infinite !important;
+  animation-delay: var(--pdelay, 0s);
+  will-change: transform, opacity;
+}
+
