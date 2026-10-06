@@ -227,10 +227,21 @@ export function SubtleBackgroundPatternSvg() {
   return null;
 }
 
-/* Slide Outer Container Wrapper */
+/* Slide Outer Container Wrapper with Background Pattern */
 export function SlideSection({ children, active = true, topPadClassName = 'pt-32' }) {
   return (
     <section className={`relative h-full w-full overflow-hidden bg-[#FAF3E0] ${active ? '' : 'section-idle'}`}>
+      {/* Repeating Gold Diamond Lattice Background Pattern */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-25"
+        style={{
+          backgroundImage: 'url(/images/bg-lattice-pattern.png)',
+          backgroundRepeat: 'repeat',
+          backgroundSize: '150px 150px',
+          backgroundPosition: 'center center',
+          mixBlendMode: 'multiply',
+        }}
+      />
       <div className={`relative z-10 flex h-full flex-col items-center overflow-y-auto overscroll-contain px-7 ${topPadClassName} pb-24 text-center`}>
         {children}
       </div>
