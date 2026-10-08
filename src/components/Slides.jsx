@@ -340,7 +340,8 @@ export function SlideInvite({ active = true }) {
             <p className="font-heading text-[0.78rem] font-semibold text-[var(--brown-900)] italic">
               Best Wishes from: Hafis Anwar, Fidha and Haroon
             </p>
-            <img src="/images/inshallah2.png" alt="إن شاء اللّه" className="mt-1 h-auto w-[4.5rem]" />
+            <GoldOrnamentSvg className="mt-2 mb-1" width={140} />
+            <img src="/images/inshallah2.png" alt="إن شاء اللّه" className="mt-1.5 h-auto w-[4.5rem]" />
           </div>
         </div>
       )}
