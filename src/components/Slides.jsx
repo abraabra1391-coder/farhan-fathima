@@ -270,7 +270,7 @@ export function SlideHero({ active = true }) {
                 &amp;
               </span>
               <h1 className="font-name rise-in text-[2.7rem] leading-tight text-[var(--brown-800)]" style={{ '--d': '0.72s' }}>
-                Fathima Fahim Kabir
+                Fathima Fahim
               </h1>
             </div>
             <GoldOrnamentSvg className="rise-in mt-1" width={150} />
