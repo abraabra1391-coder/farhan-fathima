@@ -228,20 +228,29 @@ export function SubtleBackgroundPatternSvg() {
 }
 
 /* Slide Outer Container Wrapper with Background Pattern */
-export function SlideSection({ children, active = true, topPadClassName = 'pt-32' }) {
+export function SlideSection({ children, active = true, topPadClassName = 'pt-32', bgImage }) {
   return (
     <section className={`relative h-full w-full overflow-hidden bg-[#FAF3E0] ${active ? '' : 'section-idle'}`}>
-      {/* Repeating Gold Diamond Lattice Background Pattern */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-25"
-        style={{
-          backgroundImage: 'url(/images/bg-lattice-pattern.png)',
-          backgroundRepeat: 'repeat',
-          backgroundSize: '320px 320px',
-          backgroundPosition: 'center center',
-          mixBlendMode: 'multiply',
-        }}
-      />
+      {/* Custom Background Image or Repeating Lattice Pattern */}
+      {bgImage ? (
+        <div
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${bgImage})`,
+          }}
+        />
+      ) : (
+        <div
+          className="pointer-events-none absolute inset-0 z-0 opacity-25"
+          style={{
+            backgroundImage: 'url(/images/bg-lattice-pattern.png)',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '320px 320px',
+            backgroundPosition: 'center center',
+            mixBlendMode: 'multiply',
+          }}
+        />
+      )}
       <div className={`relative z-10 flex h-full flex-col items-center overflow-y-auto overscroll-contain px-7 ${topPadClassName} pb-24 text-center`}>
         {children}
       </div>
@@ -252,7 +261,7 @@ export function SlideSection({ children, active = true, topPadClassName = 'pt-32
 /* SLIDE 1: Hero Slide */
 export function SlideHero({ active = true }) {
   return (
-    <SlideSection active={active} seed={2} topPadClassName="pt-10 sm:pt-16">
+    <SlideSection active={active} seed={2} topPadClassName="pt-10 sm:pt-16" bgImage="/images/hero-bg-mandala.png">
       {active && (
         <>
           <PetalEffects count={18} />
