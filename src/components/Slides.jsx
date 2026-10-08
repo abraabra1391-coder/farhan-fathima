@@ -227,7 +227,7 @@ export function SubtleBackgroundPatternSvg() {
   return null;
 }
 
-/* Slide Outer Container Wrapper with Background Pattern */
+/* Slide Outer Container Wrapper with Background Pattern & Falling Petals */
 export function SlideSection({ children, active = true, topPadClassName = 'pt-32', bgImage = '/images/hero-bg-mandala.png' }) {
   return (
     <section className={`relative h-full w-full overflow-hidden bg-[#FAF3E0] ${active ? '' : 'section-idle'}`}>
@@ -238,6 +238,8 @@ export function SlideSection({ children, active = true, topPadClassName = 'pt-32
           backgroundImage: `url(${bgImage})`,
         }}
       />
+      {/* Real Gold Flower Petals Falling Animation on All Sections */}
+      {active && <PetalEffects count={10} />}
       <div className={`relative z-10 flex h-full flex-col items-center overflow-y-auto overscroll-contain px-7 ${topPadClassName} pb-24 text-center`}>
         {children}
       </div>
@@ -251,7 +253,6 @@ export function SlideHero({ active = true }) {
     <SlideSection active={active} seed={2} topPadClassName="pt-10 sm:pt-16" bgImage="/images/hero-bg-mandala.png">
       {active && (
         <>
-          <PetalEffects count={18} />
           <div className="flex h-full -translate-y-6 flex-col items-center justify-center gap-4 sm:translate-y-0 relative z-10">
             <img
               src="/images/arabic-monogram.png"
