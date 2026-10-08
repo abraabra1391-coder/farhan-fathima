@@ -331,7 +331,7 @@ export function SlideInvite({ active = true }) {
           <PersonDetails
             name="Fathima Fahim Kabir"
             parents="(Daughter of Mr. Kabir & Mrs. Jaseena Kabir)"
-            address="FAMANS, Poovalupurambil House, Koolimuttam, Mathilakam, Thrissur"
+            address="FAMANS, Poovalupurambil House, Thrissur"
             grandparents="Grand D/o. Late Beeravu & Late Nafeesa, Mr. Shahul Hameed & Mrs. Noorjahan"
             delay="0.66s"
           />
