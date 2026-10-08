@@ -455,7 +455,7 @@ export function SlideVenue({ active = true }) {
               aria-hidden="true"
             />
             <span className="font-heading mt-2 text-[1.3rem] leading-tight font-semibold text-[var(--brown-800)]">
-              LULU International Convention Center
+              LuLu International Convention Center
             </span>
             <span className="mt-1 text-[0.88rem] text-[var(--ink-soft)]">Thrissur, Kerala</span>
             <span className="my-3 flex items-center gap-2">
