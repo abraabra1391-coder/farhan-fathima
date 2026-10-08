@@ -457,9 +457,6 @@ export function SlideVenue({ active = true }) {
               LULU International Convention Center
             </span>
             <span className="mt-1 text-[0.88rem] text-[var(--ink-soft)]">Thrissur, Kerala</span>
-            <span className="mt-3 text-[0.64rem] font-semibold tracking-[0.24em] text-[var(--gold-ink)] uppercase">
-              31 / 12 / 26 · Nikah 11:00 AM
-            </span>
             <span className="my-3 flex items-center gap-2">
               <span className="h-px w-10 bg-gradient-to-r from-transparent to-[var(--gold)]" />
               <span className="h-1.5 w-1.5 rotate-45 bg-[var(--gold)]" />
