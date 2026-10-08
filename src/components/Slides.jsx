@@ -398,7 +398,7 @@ export function SlideReception({ active = true }) {
                 <span className="h-px w-8 bg-gradient-to-l from-transparent to-[var(--gold)]" />
               </span>
 
-              <span className="text-[0.75rem] font-bold tracking-[0.22em] text-[var(--brown-800)] uppercase">Nikah 11:00 AM Onwards</span>
+              <span className="text-[0.75rem] font-bold tracking-[0.22em] text-[var(--brown-800)] uppercase">11:00 AM Onwards</span>
             </div>
           </div>
         </div>
