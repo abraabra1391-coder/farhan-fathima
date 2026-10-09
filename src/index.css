@@ -72,10 +72,35 @@ html, body {
   animation: none !important;
 }
 
+/* Staggered Pop-Up Entrance Animation for Text Elements */
+@keyframes textPopUpIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(35px);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-5px);
+  }
+  85% {
+    transform: scale(0.98) translateY(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .rise-in {
+  animation: textPopUpIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: var(--d, 0s);
+  will-change: transform, opacity;
+}
+
+.section-idle .rise-in {
+  opacity: 0 !important;
+  transform: scale(0.7) translateY(35px) !important;
   animation: none !important;
-  opacity: 1 !important;
-  transform: none !important;
 }
 
 /* Splash Loader Rings */
@@ -215,24 +240,24 @@ html, body {
   transform: none !important;
 }
 
-/* Gold & Cream Petal Fall Animation for First Section */
+/* Gold & Cream Petal Fall Animation for First Section - Single Side Only */
 @keyframes goldPetalFall {
   0% {
-    transform: translate3d(0, -20px, 0) rotate(0deg) scale(0.8);
+    transform: translate3d(0, -20px, 0) rotate(0deg) scale(0.9);
     opacity: 0;
   }
   15% {
-    opacity: 0.9;
+    opacity: 0.95;
   }
   50% {
-    transform: translate3d(var(--psway, 15px), 50vh, 0) rotate(180deg) scale(1.05);
+    transform: translate3d(var(--psway, 15px), 50vh, 0) rotate(15deg) scale(1.02);
     opacity: 0.95;
   }
   85% {
-    opacity: 0.85;
+    opacity: 0.9;
   }
   100% {
-    transform: translate3d(calc(var(--psway, 15px) * -1), 105vh, 0) rotate(360deg) scale(0.85);
+    transform: translate3d(calc(var(--psway, 15px) * -1), 105vh, 0) rotate(-10deg) scale(0.88);
     opacity: 0;
   }
 }
@@ -243,47 +268,51 @@ html, body {
   will-change: transform, opacity;
 }
 
-/* Cream Petal Slow Motion Fall (One-by-One Staggered Flow) */
+/* Cream Petal Slow Motion Fall - Single Side Only */
 @keyframes creamPetalSlowFall {
   0% {
-    transform: translate3d(0, -35px, 0) rotate(0deg) scale(0.8);
+    transform: translate3d(0, -35px, 0) rotate(0deg) scale(0.9);
     opacity: 0;
   }
   12% {
     opacity: 0.96;
   }
   50% {
-    transform: translate3d(var(--psway, 18px), 52vh, 0) rotate(190deg) scale(1.05);
+    transform: translate3d(var(--psway, 18px), 52vh, 0) rotate(18deg) scale(1.02);
     opacity: 0.96;
   }
   88% {
     opacity: 0.9;
   }
   100% {
-    transform: translate3d(calc(var(--psway, 18px) * -1), 108vh, 0) rotate(380deg) scale(0.85);
+    transform: translate3d(calc(var(--psway, 18px) * -1), 108vh, 0) rotate(-12deg) scale(0.88);
     opacity: 0;
   }
 }
 
-/* Gold Petal Continuous Uninterrupted Fall (Fades out ONLY after reaching screen bottom) */
+/* Gold Petal Continuous Uninterrupted Fall - Single Side Only (No 3D Flipping) */
 @keyframes goldPetalContinuousFall {
   0% {
-    transform: translate3d(0, -40px, 0) rotateX(10deg) rotateY(0deg) rotateZ(0deg) scale(0.85);
+    transform: translate3d(0, -50px, 0) rotate(var(--protate, 0deg)) scale(0.9);
     opacity: 0;
   }
   8% {
-    opacity: 0.96;
+    opacity: 0.98;
   }
-  50% {
-    transform: translate3d(var(--psway, 20px), 52vh, 0) rotateX(160deg) rotateY(90deg) rotateZ(180deg) scale(1.05);
-    opacity: 0.96;
+  30% {
+    transform: translate3d(var(--psway, 20px), 32vh, 0) rotate(calc(var(--protate, 0deg) + 12deg)) scale(1.02);
+    opacity: 0.98;
   }
-  90% {
-    transform: translate3d(calc(var(--psway, 20px) * -0.6), 94vh, 0) rotateX(280deg) rotateY(180deg) rotateZ(310deg) scale(0.95);
-    opacity: 0.96;
+  65% {
+    transform: translate3d(calc(var(--psway, 20px) * -0.7), 70vh, 0) rotate(calc(var(--protate, 0deg) - 10deg)) scale(0.98);
+    opacity: 0.98;
+  }
+  92% {
+    transform: translate3d(calc(var(--psway, 20px) * 0.4), 98vh, 0) rotate(calc(var(--protate, 0deg) + 6deg)) scale(0.98);
+    opacity: 0.98;
   }
   100% {
-    transform: translate3d(calc(var(--psway, 20px) * -1.1), 108vh, 0) rotateX(360deg) rotateY(240deg) rotateZ(360deg) scale(0.85);
+    transform: translate3d(calc(var(--psway, 20px) * -0.5), 108vh, 0) rotate(var(--protate, 0deg)) scale(0.88);
     opacity: 0;
   }
 }

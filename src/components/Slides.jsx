@@ -228,14 +228,16 @@ export function SubtleBackgroundPatternSvg() {
 }
 
 /* Slide Outer Container Wrapper with Background Pattern & Falling Petals */
-export function SlideSection({ children, active = true, topPadClassName = 'pt-32', bgImage = '/images/hero-bg-mandala.png' }) {
+export function SlideSection({ children, active = true, topPadClassName = 'pt-32', bgImage = '/images/damask-wallpaper-bg.jpg' }) {
   return (
     <section className={`relative h-full w-full overflow-hidden bg-[#FAF3E0] ${active ? '' : 'section-idle'}`}>
-      {/* Background Image Layer */}
+      {/* Background Wallpaper Layer */}
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
         }}
       />
       {/* Real Gold Flower Petals Falling Animation on All Sections */}
@@ -250,7 +252,7 @@ export function SlideSection({ children, active = true, topPadClassName = 'pt-32
 /* SLIDE 1: Hero Slide */
 export function SlideHero({ active = true }) {
   return (
-    <SlideSection active={active} seed={2} topPadClassName="pt-10 sm:pt-16" bgImage="/images/hero-bg-mandala.png">
+    <SlideSection active={active} seed={2} topPadClassName="pt-10 sm:pt-16">
       {active && (
         <>
           <div className="flex h-full -translate-y-6 flex-col items-center justify-center gap-4 sm:translate-y-0 relative z-10">
@@ -360,57 +362,59 @@ const dateColumns = [
 export function SlideReception({ active = true }) {
   return (
     <SlideSection active={active} petals={12} seed={5} topPadClassName="pt-16 sm:pt-28">
-      <div className="flex h-full flex-col items-center justify-center">
-        <div className="flex flex-col items-center">
-          <h2 className="font-script rise-in text-[2.8rem] text-[var(--brown-800)]" style={{ '--d': '0.1s' }}>
-            The Nikah
-          </h2>
-          <GoldOrnamentSvg className="rise-in mt-1" width={170} />
-        </div>
+      {active && (
+        <div className="flex h-full flex-col items-center justify-center">
+          <div className="flex flex-col items-center">
+            <h2 className="font-script rise-in text-[2.8rem] text-[var(--brown-800)]" style={{ '--d': '0.1s' }}>
+              The Nikah
+            </h2>
+            <GoldOrnamentSvg className="rise-in mt-1" width={170} style={{ '--d': '0.2s' }} />
+          </div>
 
-        <div aria-hidden="true" className="max-h-16 w-full flex-1" />
+          <div aria-hidden="true" className="max-h-16 w-full flex-1" />
 
-        <div className="rise-in" style={{ '--d': '0.3s' }}>
-          <div className="relative flex w-[300px] h-[208px] select-none flex-col items-center justify-center overflow-hidden rounded-[18px] border border-[var(--gold)] bg-[radial-gradient(120%_100%_at_50%_0%,#fffaf0_0%,#f7ecd8_60%,#eeddc0_100%)] shadow-[0_10px_30px_rgba(107,77,24,0.18)]">
-            <div className="flex flex-col items-center">
-              <span className="text-[0.65rem] font-semibold tracking-[0.34em] text-[var(--gold-ink)] uppercase">Thursday</span>
-              <div className="mt-1 grid items-center justify-center" style={{ gridTemplateColumns: 'auto auto auto auto auto', columnGap: '0.55rem' }}>
-                {dateColumns.map((col, idx) => (
-                  <React.Fragment key={col.label}>
-                    {idx > 0 && (
-                      <span aria-hidden="true" className="font-date" style={{ fontSize: '3.4rem', lineHeight: 1, color: 'var(--gold)' }}>
-                        –
+          <div className="rise-in" style={{ '--d': '0.35s' }}>
+            <div className="relative flex w-[300px] h-[208px] select-none flex-col items-center justify-center overflow-hidden rounded-[18px] border border-[var(--gold)] bg-[radial-gradient(120%_100%_at_50%_0%,#fffaf0_0%,#f7ecd8_60%,#eeddc0_100%)] shadow-[0_10px_30px_rgba(107,77,24,0.18)]">
+              <div className="flex flex-col items-center">
+                <span className="text-[0.65rem] font-semibold tracking-[0.34em] text-[var(--gold-ink)] uppercase">Thursday</span>
+                <div className="mt-1 grid items-center justify-center" style={{ gridTemplateColumns: 'auto auto auto auto auto', columnGap: '0.55rem' }}>
+                  {dateColumns.map((col, idx) => (
+                    <React.Fragment key={col.label}>
+                      {idx > 0 && (
+                        <span aria-hidden="true" className="font-date" style={{ fontSize: '3.4rem', lineHeight: 1, color: 'var(--gold)' }}>
+                          –
+                        </span>
+                      )}
+                      <span className="font-date" style={{ fontSize: '4.2rem', lineHeight: 1, color: col.color, textShadow: '0 1px 1px rgba(255,255,255,0.5)' }}>
+                        {col.v}
                       </span>
-                    )}
-                    <span className="font-date" style={{ fontSize: '4.2rem', lineHeight: 1, color: col.color, textShadow: '0 1px 1px rgba(255,255,255,0.5)' }}>
-                      {col.v}
-                    </span>
-                  </React.Fragment>
-                ))}
-                <span className="text-[0.52rem] font-semibold tracking-[0.22em] text-[var(--gold-ink)] uppercase">{dateColumns[0].label}</span>
-                <span aria-hidden="true" />
-                <span className="text-[0.52rem] font-semibold tracking-[0.22em] text-[var(--gold-ink)] uppercase">{dateColumns[1].label}</span>
-                <span aria-hidden="true" />
-                <span className="text-[0.52rem] font-semibold tracking-[0.22em] text-[var(--gold-ink)] uppercase">{dateColumns[2].label}</span>
+                    </React.Fragment>
+                  ))}
+                  <span className="text-[0.52rem] font-semibold tracking-[0.22em] text-[var(--gold-ink)] uppercase">{dateColumns[0].label}</span>
+                  <span aria-hidden="true" />
+                  <span className="text-[0.52rem] font-semibold tracking-[0.22em] text-[var(--gold-ink)] uppercase">{dateColumns[1].label}</span>
+                  <span aria-hidden="true" />
+                  <span className="text-[0.52rem] font-semibold tracking-[0.22em] text-[var(--gold-ink)] uppercase">{dateColumns[2].label}</span>
+                </div>
+
+                <span className="my-2 flex items-center gap-2">
+                  <span className="h-px w-8 bg-gradient-to-r from-transparent to-[var(--gold)]" />
+                  <span className="h-1 w-1 rotate-45 bg-[var(--gold)]" />
+                  <span className="h-px w-8 bg-gradient-to-l from-transparent to-[var(--gold)]" />
+                </span>
+
+                <span className="text-[0.75rem] font-bold tracking-[0.22em] text-[var(--brown-800)] uppercase">11:00 AM Onwards</span>
               </div>
-
-              <span className="my-2 flex items-center gap-2">
-                <span className="h-px w-8 bg-gradient-to-r from-transparent to-[var(--gold)]" />
-                <span className="h-1 w-1 rotate-45 bg-[var(--gold)]" />
-                <span className="h-px w-8 bg-gradient-to-l from-transparent to-[var(--gold)]" />
-              </span>
-
-              <span className="text-[0.75rem] font-bold tracking-[0.22em] text-[var(--brown-800)] uppercase">11:00 AM Onwards</span>
             </div>
           </div>
+
+          <div aria-hidden="true" className="max-h-16 w-full flex-1" />
+
+          <p className="rise-in max-w-[18rem] text-[0.82rem] leading-relaxed text-[var(--ink-soft)]" style={{ '--d': '0.55s' }}>
+            We would be honoured to share this special day with you.
+          </p>
         </div>
-
-        <div aria-hidden="true" className="max-h-16 w-full flex-1" />
-
-        <p className="rise-in max-w-[18rem] text-[0.82rem] leading-relaxed text-[var(--ink-soft)]" style={{ '--d': '0.7s' }}>
-          We would be honoured to share this special day with you.
-        </p>
-      </div>
+      )}
     </SlideSection>
   );
 }
@@ -419,57 +423,59 @@ export function SlideReception({ active = true }) {
 export function SlideVenue({ active = true }) {
   return (
     <SlideSection active={active} petals={11} seed={8} topPadClassName="pt-16 sm:pt-28">
-      <div className="flex h-full w-full flex-col items-center justify-center">
-        <div className="flex flex-col items-center">
-          <h2 className="font-script rise-in text-[2.6rem] text-[var(--brown-800)]" style={{ '--d': '0.1s' }}>
-            The Venue
-          </h2>
-          <GoldOrnamentSvg className="rise-in mt-2" width={160} />
+      {active && (
+        <div className="flex h-full w-full flex-col items-center justify-center">
+          <div className="flex flex-col items-center">
+            <h2 className="font-script rise-in text-[2.6rem] text-[var(--brown-800)]" style={{ '--d': '0.1s' }}>
+              The Venue
+            </h2>
+            <GoldOrnamentSvg className="rise-in mt-2" width={160} style={{ '--d': '0.2s' }} />
+          </div>
+
+          <div aria-hidden="true" className="max-h-16 w-full flex-1" />
+
+          <a
+            href="https://maps.app.goo.gl/FsZZpXaTQys6S2GYA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rise-in group relative flex w-full max-w-[26rem] flex-col overflow-hidden rounded-2xl border border-[var(--gold)] bg-[var(--cream-soft)] shadow-[0_10px_30px_rgba(54,29,20,0.12)] transition-transform active:scale-[0.98]"
+            style={{ '--d': '0.35s' }}
+          >
+            <div className="relative h-52 w-full overflow-hidden">
+              <img
+                src="/images/lulu-convention-center.jpg"
+                alt="LULU International Convention Center"
+                aria-hidden="true"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--cream-soft)] via-[var(--cream-soft)]/70 to-transparent" />
+            </div>
+
+            <div className="relative z-10 -mt-6 flex flex-col items-center px-6 pb-6 text-center">
+              <img
+                src="/sites/vowlee-com-d408bace/en-catalog-rose-gold-affc141d/images/google-maps-icon.webp"
+                alt="Google Maps"
+                width={22}
+                height={32}
+                className="h-7 w-auto"
+                aria-hidden="true"
+              />
+              <span className="font-heading mt-2 text-[1.3rem] leading-tight font-semibold text-[var(--brown-800)]">
+                LuLu International Convention Center
+              </span>
+              <span className="mt-1 text-[0.88rem] text-[var(--ink-soft)]">Thrissur, Kerala</span>
+              <span className="my-3 flex items-center gap-2">
+                <span className="h-px w-10 bg-gradient-to-r from-transparent to-[var(--gold)]" />
+                <span className="h-1.5 w-1.5 rotate-45 bg-[var(--gold)]" />
+                <span className="h-px w-10 bg-gradient-to-l from-transparent to-[var(--gold)]" />
+              </span>
+              <span className="text-[0.7rem] font-semibold tracking-[0.22em] text-[var(--gold-ink)] uppercase underline underline-offset-4">
+                Tap for Google Maps
+              </span>
+            </div>
+          </a>
         </div>
-
-        <div aria-hidden="true" className="max-h-16 w-full flex-1" />
-
-        <a
-          href="https://maps.app.goo.gl/FsZZpXaTQys6S2GYA"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rise-in group relative flex w-full max-w-[26rem] flex-col overflow-hidden rounded-2xl border border-[var(--gold)] bg-[var(--cream-soft)] shadow-[0_10px_30px_rgba(54,29,20,0.12)] transition-transform active:scale-[0.98]"
-          style={{ '--d': '0.35s' }}
-        >
-          <div className="relative h-52 w-full overflow-hidden">
-            <img
-              src="/images/lulu-convention-center.jpg"
-              alt="LULU International Convention Center"
-              aria-hidden="true"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--cream-soft)] via-[var(--cream-soft)]/70 to-transparent" />
-          </div>
-
-          <div className="relative z-10 -mt-6 flex flex-col items-center px-6 pb-6 text-center">
-            <img
-              src="/sites/vowlee-com-d408bace/en-catalog-rose-gold-affc141d/images/google-maps-icon.webp"
-              alt="Google Maps"
-              width={22}
-              height={32}
-              className="h-7 w-auto"
-              aria-hidden="true"
-            />
-            <span className="font-heading mt-2 text-[1.3rem] leading-tight font-semibold text-[var(--brown-800)]">
-              LuLu International Convention Center
-            </span>
-            <span className="mt-1 text-[0.88rem] text-[var(--ink-soft)]">Thrissur, Kerala</span>
-            <span className="my-3 flex items-center gap-2">
-              <span className="h-px w-10 bg-gradient-to-r from-transparent to-[var(--gold)]" />
-              <span className="h-1.5 w-1.5 rotate-45 bg-[var(--gold)]" />
-              <span className="h-px w-10 bg-gradient-to-l from-transparent to-[var(--gold)]" />
-            </span>
-            <span className="text-[0.7rem] font-semibold tracking-[0.22em] text-[var(--gold-ink)] uppercase underline underline-offset-4">
-              Tap for Google Maps
-            </span>
-          </div>
-        </a>
-      </div>
+      )}
     </SlideSection>
   );
 }
@@ -512,53 +518,55 @@ export function SlideCountdown({ active = true }) {
 
   return (
     <SlideSection active={active} petals={11} seed={17} topPadClassName="pt-24 sm:pt-32">
-      <div className="flex h-full flex-col items-center justify-center">
-        <div className="flex flex-col items-center">
-          <h2 className="font-script rise-in text-[2.8rem] text-[var(--brown-800)]" style={{ '--d': '0.1s' }}>
-            See you in
-          </h2>
-          <GoldOrnamentSvg className="rise-in mt-2" width={160} />
-        </div>
+      {active && (
+        <div className="flex h-full flex-col items-center justify-center">
+          <div className="flex flex-col items-center">
+            <h2 className="font-script rise-in text-[2.8rem] text-[var(--brown-800)]" style={{ '--d': '0.1s' }}>
+              See you in
+            </h2>
+            <GoldOrnamentSvg className="rise-in mt-2" width={160} style={{ '--d': '0.2s' }} />
+          </div>
 
-        <div aria-hidden="true" className="max-h-16 w-full flex-1" />
+          <div aria-hidden="true" className="max-h-16 w-full flex-1" />
 
-        <div className="rise-in flex items-stretch gap-2" style={{ '--d': '0.3s' }} suppressHydrationWarning>
-          {timerUnits.map(([val, label], idx) => (
-            <div key={label} className="flex items-center gap-2">
-              <div className="flex min-w-[3.6rem] flex-col items-center rounded-2xl border border-[var(--gold)]/70 bg-[var(--cream-soft)]/90 px-3 py-4 shadow-[0_4px_16px_rgba(54,29,20,0.08)]">
-                <span className="font-heading text-[2.1rem] leading-none font-semibold text-[var(--brown-800)]" style={{ fontVariantNumeric: 'lining-nums' }}>
-                  {val}
-                </span>
-                <span className="mt-1 text-[0.56rem] font-medium tracking-[0.24em] text-[var(--gold-ink)] uppercase">{label}</span>
+          <div className="rise-in flex items-stretch gap-2" style={{ '--d': '0.35s' }} suppressHydrationWarning>
+            {timerUnits.map(([val, label], idx) => (
+              <div key={label} className="flex items-center gap-2">
+                <div className="flex min-w-[3.6rem] flex-col items-center rounded-2xl border border-[var(--gold)]/70 bg-[var(--cream-soft)]/90 px-3 py-4 shadow-[0_4px_16px_rgba(54,29,20,0.08)]">
+                  <span className="font-heading text-[2.1rem] leading-none font-semibold text-[var(--brown-800)]" style={{ fontVariantNumeric: 'lining-nums' }}>
+                    {val}
+                  </span>
+                  <span className="mt-1 text-[0.56rem] font-medium tracking-[0.24em] text-[var(--gold-ink)] uppercase">{label}</span>
+                </div>
+                {idx < timerUnits.length - 1 && <span className="h-1 w-1 rotate-45 bg-[var(--gold)]" aria-hidden="true" />}
               </div>
-              {idx < timerUnits.length - 1 && <span className="h-1 w-1 rotate-45 bg-[var(--gold)]" aria-hidden="true" />}
+            ))}
+          </div>
+
+          <div aria-hidden="true" className="max-h-16 w-full flex-1" />
+
+          <div className="rise-in flex flex-col items-center text-center" style={{ '--d': '0.55s' }}>
+            <p dir="rtl" lang="ar" className="font-arabic gold-text text-[1.3rem]">
+              وَخَلَقْنَاكُمْ أَزْوَاجًا
+            </p>
+            <p className="mt-1.5 text-[0.82rem] leading-relaxed text-[var(--brown-800)]">
+              “And We created you in pairs.”
+            </p>
+            <p className="font-heading mt-1 text-[0.72rem] font-semibold tracking-[0.18em] text-[var(--gold-ink)] uppercase">
+              Qur'an 78:8
+            </p>
+
+            <div className="mt-3.5 flex flex-col items-center gap-1 text-[var(--brown-800)]">
+              <p className="font-heading text-[0.92rem] font-semibold italic">
+                Two hearts, one beautiful journey.
+              </p>
+              <p className="text-[0.82rem] leading-relaxed text-[var(--brown-900)] max-w-[20rem]">
+                We can’t wait to celebrate this special day with you.
+              </p>
             </div>
-          ))}
-        </div>
-
-        <div aria-hidden="true" className="max-h-16 w-full flex-1" />
-
-        <div className="rise-in flex flex-col items-center text-center" style={{ '--d': '0.6s' }}>
-          <p dir="rtl" lang="ar" className="font-arabic gold-text text-[1.3rem]">
-            وَخَلَقْنَاكُمْ أَزْوَاجًا
-          </p>
-          <p className="mt-1.5 text-[0.82rem] leading-relaxed text-[var(--brown-800)]">
-            “And We created you in pairs.”
-          </p>
-          <p className="font-heading mt-1 text-[0.72rem] font-semibold tracking-[0.18em] text-[var(--gold-ink)] uppercase">
-            Qur'an 78:8
-          </p>
-
-          <div className="mt-3.5 flex flex-col items-center gap-1 text-[var(--brown-800)]">
-            <p className="font-heading text-[0.92rem] font-semibold italic">
-              Two hearts, one beautiful journey.
-            </p>
-            <p className="text-[0.82rem] leading-relaxed text-[var(--brown-900)] max-w-[20rem]">
-              We can’t wait to celebrate this special day with you.
-            </p>
           </div>
         </div>
-      </div>
+      )}
     </SlideSection>
   );
 }
