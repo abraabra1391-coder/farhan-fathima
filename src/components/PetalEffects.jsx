@@ -22,7 +22,7 @@ export default function PetalEffects({ count = 9 }) {
       const left = positions[idx % positions.length];
       const img = petalImages[idx % petalImages.length];
       const swayX = sways[idx % sways.length];
-      const size = 32 + (idx % 4) * 7; // Size: 32px to 53px for crisp photorealistic rendering
+      const size = 18 + (idx % 4) * 4; // Delicate pastel gold petal size: 18px to 30px
       const dur = (11.5 + (idx % 4) * 0.6).toFixed(1);
       const delay = (idx * 1.55).toFixed(2);
       const rotate = (idx * 43) % 360;
@@ -61,7 +61,7 @@ export default function PetalEffects({ count = 9 }) {
           <img
             src={`/images/petals/${p.img}`}
             alt=""
-            className="h-auto object-contain drop-shadow-[0_4px_10px_rgba(120,85,20,0.3)]"
+            className="h-auto object-contain drop-shadow-[0_2px_6px_rgba(190,150,70,0.22)]"
             style={{ width: `${p.size}px` }}
           />
         </div>
